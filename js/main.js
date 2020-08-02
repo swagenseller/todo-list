@@ -10,22 +10,7 @@ for (let li of items) {
 
 // deletes a element in the list
 for (let i of icons) {
-	i.addEventListener("click", function () {
-		event.stopPropagation();
-		var fadeTarget = this.parentElement;
-
-		let fadeEffect = setInterval(function () {
-			if (!fadeTarget.style.opacity) {
-				fadeTarget.style.opacity = 1;
-			}
-			if (fadeTarget.style.opacity > 0) {
-				fadeTarget.style.opacity -= 0.1;
-			} else {
-				clearInterval(fadeEffect);
-				fadeTarget.remove();
-			}
-		}, 100);
-	});
+	i.addEventListener("click", deleteEffect);
 }
 
 var input = document.querySelector("input");
@@ -46,22 +31,7 @@ function createLi() {
 	icon.setAttribute("aria-hidden", "true");
 
 	newSpan.appendChild(icon);
-	newSpan.addEventListener("click", function () {
-		event.stopPropagation();
-		var fadeTarget = this.parentElement;
-
-		let fadeEffect = setInterval(function () {
-			if (!fadeTarget.style.opacity) {
-				fadeTarget.style.opacity = 1;
-			}
-			if (fadeTarget.style.opacity > 0) {
-				fadeTarget.style.opacity -= 0.1;
-			} else {
-				clearInterval(fadeEffect);
-				fadeTarget.remove();
-			}
-		}, 100);
-	});
+	newSpan.addEventListener("click", deleteEffect);
 
 	newLi.appendChild(newSpan);
 	newLi.appendChild(document.createTextNode(input.value));
@@ -70,4 +40,21 @@ function createLi() {
 	});
 
 	ul.appendChild(newLi);
+}
+
+function deleteEffect() {
+	event.stopPropagation();
+	var fadeTarget = this.parentElement;
+
+	let fadeEffect = setInterval(function () {
+		if (!fadeTarget.style.opacity) {
+			fadeTarget.style.opacity = 1;
+		}
+		if (fadeTarget.style.opacity > 0) {
+			fadeTarget.style.opacity -= 0.1;
+		} else {
+			clearInterval(fadeEffect);
+			fadeTarget.remove();
+		}
+	}, 100);
 }
