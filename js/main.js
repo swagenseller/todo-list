@@ -32,20 +32,42 @@ var input = document.querySelector("input");
 
 input.addEventListener("keydown", (event) => {
 	if (event.code === "Enter" || event.which === "Enter") {
-		//console.log(input.value);
-		//let newItem = input.value;
-		let newLi = document.createElement("li");
-		newLi.textContent = input.value;
-		let ul = document.querySelector("ul");
-
-		ul.appendChild(newLi);
+		createLi();
 	}
 });
 
 function createLi() {
 	let ul = document.querySelector("ul");
 	let newLi = document.createElement("li");
+	let newSpan = document.createElement("span");
+	let icon = document.createElement("i");
 
-	newLi.appendChild();
-	newLi.textContent = input.value;
+	icon.classList.add("fa", "fa-minus-circle");
+	icon.setAttribute("aria-hidden", "true");
+
+	newSpan.appendChild(icon);
+	newSpan.addEventListener("click", function () {
+		event.stopPropagation();
+		var fadeTarget = this.parentElement;
+
+		let fadeEffect = setInterval(function () {
+			if (!fadeTarget.style.opacity) {
+				fadeTarget.style.opacity = 1;
+			}
+			if (fadeTarget.style.opacity > 0) {
+				fadeTarget.style.opacity -= 0.1;
+			} else {
+				clearInterval(fadeEffect);
+				fadeTarget.remove();
+			}
+		}, 100);
+	});
+
+	newLi.appendChild(newSpan);
+	newLi.appendChild(document.createTextNode(input.value));
+	newLi.addEventListener("click", function () {
+		this.classList.toggle("checked");
+	});
+
+	ul.appendChild(newLi);
 }
