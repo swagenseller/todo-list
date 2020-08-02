@@ -2,7 +2,13 @@ body {
 	background-color: #ff9d00;
 }
 #container {
-	background-color: gray;
+	background-color: white;
 	width: 360px;
 	margin: 0 auto;
+	border: 2px solid gray;
+}
+
+.checked {
+	color: gray;
+	text-decoration: line-through;
 }
