@@ -1,6 +1,15 @@
 body {
-	background-color: #ffb034;
-	font-family: "Roboto", sans-serif;
+	background: rgb(253, 200, 48); /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		#f37335,
+		#fdc830
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#f37335,
+		#fdc830
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 h1 {
@@ -20,19 +29,52 @@ ul {
 
 li {
 	background: #fff;
+	height: 40px;
+	line-height: 40px;
 }
 
 li:nth-child(2n) {
 	background: #f7f7f7;
 }
+
+input {
+	font-size: 18px;
+	background-color: #f7f7f7;
+	width: 100%;
+	padding: 13px 13px 13px 20px;
+	box-sizing: border-box;
+	color: #4a34ff;
+	display: inline;
+}
+input:focus {
+	background: white;
+	border: 2px solid #4a34ff;
+	outline: none;
+}
 #container {
 	background-color: #f7f7f7;
 	width: 360px;
 	margin: 100px auto;
-	box-shadow: 0 0 3px rgb(0, 0, 0, 0.2);
+	box-shadow: 0 0 20px rgb(74, 52, 255, 0.75);
 }
 
 .checked {
 	color: gray;
 	text-decoration: line-through;
+}
+
+.fa-marker {
+	float: right;
+	color: #4a34ff;
+	background-color: white;
+	padding: 5px 5px 5px 5px;
+	border-radius: 10px;
+	font-size: 17.5px;
+}
+.fa-marker:active {
+	color: white;
+	background-color: #4a34ff;
+}
+.fa-marker:hover {
+	box-shadow: 0 0 10px rgb(253, 200, 48);
 }
