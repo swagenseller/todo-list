@@ -36,19 +36,36 @@ li {
 li:nth-child(2n) {
 	background: #f7f7f7;
 }
+li:hover span {
+	width: 40px;
+	opacity: 1;
+}
 
-input {
+span {
+	background: #e74c3c;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	color: white;
+	width: 0px;
+	display: inline-block;
+	transition: 0.4s linear;
+	opacity: 0;
+}
+
+.new-item {
 	font-size: 18px;
 	background-color: #f7f7f7;
 	width: 100%;
 	padding: 13px 13px 13px 20px;
 	box-sizing: border-box;
 	color: #4a34ff;
-	display: inline;
+	border: 3px solid rgba(0, 0, 0, 0);
+	/*transition: display 2.5s ease-in-out; */
 }
-input:focus {
+.new-item:focus {
 	background: white;
-	border: 2px solid #4a34ff;
+	border: 3px solid #4a34ff;
 	outline: none;
 }
 #container {
@@ -70,6 +87,7 @@ input:focus {
 	padding: 5px 5px 5px 5px;
 	border-radius: 10px;
 	font-size: 17.5px;
+	transition: all 0.2s ease;
 }
 .fa-marker:active {
 	color: white;
@@ -77,4 +95,13 @@ input:focus {
 }
 .fa-marker:hover {
 	box-shadow: 0 0 10px rgb(253, 200, 48);
+}
+
+.hide-input {
+	visibility: hidden;
+	height: 0px;
+	width: 0px;
+	border: none;
+	padding: 0px;
+	font-size: 0px;
 }

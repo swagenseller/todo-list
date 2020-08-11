@@ -58,3 +58,7 @@ function deleteEffect() {
 		}
 	}, 100);
 }
+
+function addItem() {
+	input.classList.toggle("hide-input");
+}
