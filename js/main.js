@@ -1,10 +1,13 @@
 var items = document.getElementsByTagName("li");
 var icons = document.getElementsByTagName("span");
+var endOfList = items.length;
 
 // checks a element off
 for (let li of items) {
 	li.addEventListener("click", function () {
 		this.classList.toggle("checked");
+		endOfList--;
+		//items.insertAfter(this, items.childNodes[0]);
 	});
 }
 
@@ -22,6 +25,7 @@ input.addEventListener("keydown", (event) => {
 });
 
 function createLi() {
+	//if (checkItems()) {
 	let ul = document.querySelector("ul");
 	let newLi = document.createElement("li");
 	let newSpan = document.createElement("span");
@@ -40,6 +44,9 @@ function createLi() {
 	});
 
 	ul.appendChild(newLi);
+	//}
+
+	input.value = "";
 }
 
 function deleteEffect() {
@@ -61,4 +68,19 @@ function deleteEffect() {
 
 function addItem() {
 	input.classList.toggle("hide-input");
+	endOfList++;
 }
+
+function checkItems() {
+	let itemList = document.getElementsByTagName("li");
+	for (let i of itemList) {
+		console.log(i.textContent);
+		console.log(input.value);
+		if (i.textContent == input.value) {
+			return false;
+		}
+	}
+	return true;
+}
+
+checkItems();

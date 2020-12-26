@@ -29,8 +29,14 @@ ul {
 
 li {
 	background: #fff;
-	height: 40px;
+	/*height: 40px;*/
 	line-height: 40px;
+}
+p {
+	overflow: hidden;
+	/*text-overflow: ellipsis;
+	white-space: nowrap;*/
+	white-space: initial;
 }
 
 li:nth-child(2n) {
@@ -104,4 +110,12 @@ span {
 	border: none;
 	padding: 0px;
 	font-size: 0px;
+}
+
+.new-list {
+	position: absolute;
+	left: 90%;
+	background-color: #4a34ff;
+	width: 20px;
+	height: 20px;
 }
